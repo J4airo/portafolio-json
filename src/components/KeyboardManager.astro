@@ -1,0 +1,47 @@
+<footer>
+    Pulsa <kbd>Cmd</kbd> + <kbd>K</kbd> para abrir la paleta de comandos.
+</footer>
+
+<ninja-keys
+placeholder="Buscar comando" hideBreadcrumbs>
+</ninja-keys>
+
+<script>
+    import "ninja-keys"
+
+    const ninja = document.querySelector("ninja-keys")
+
+    if(ninja != null){
+        ninja.data = [
+        {
+            id: "print",
+            title: "🖨 Imprimir",
+            hotkey:"ctrl+P",
+            section:"Acciones",
+            handler: () => {
+                window.print()
+            }
+        }
+        ]
+    }
+
+</script>
+
+<style>
+
+    @media print{
+        ninja-keys{
+            display: none !important;
+        }
+    }
+
+    footer{
+        background: #eee;
+        position: fixed;
+        border-top: 1px solid #555;
+        bottom: 0px;
+        width: 100%;
+        padding-block: 8px 16px;
+        text-align: center;
+    }
+</style>
